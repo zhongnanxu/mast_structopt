@@ -1,0 +1,21 @@
+$mast
+system_name write_input
+$end
+
+$ingredients
+begin GAlammps
+
+# Mast Parameters
+mast_update_children_method give_structure
+mast_complete_method complete_singlerun
+mast_ppn 8
+mast_walltime 24
+mast_mast_exec python
+mast_run_method run_singlerun
+mast_queue morgan2
+mast_program structopt
+mast_write_method write_singlerun
+mast_nodes 1
+mast_ready_method ready_singlerun
+end
+$end

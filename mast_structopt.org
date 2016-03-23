@@ -1,0 +1,38 @@
+* Test the write script
+#+BEGIN_SRC python
+from mast_structopt import *
+
+with Mast_Structopt('tests/write_input', queue='morgan2', ppn=8) as calc:
+    calc.write_input()
+    with open('mast_structopt.in', 'r') as f:
+        print f.read()
+        
+
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+$mast
+system_name write_input
+$end
+
+$ingredients
+begin GAlammps
+
+# Mast Parameters
+mast_update_children_method give_structure
+mast_complete_method complete_singlerun
+mast_ppn 8
+mast_walltime 24
+mast_mast_exec python
+mast_run_method run_singlerun
+mast_queue morgan2
+mast_program structopt
+mast_write_method write_singlerun
+mast_nodes 1
+mast_ready_method ready_singlerun
+end
+$end
+
+#+end_example
+
